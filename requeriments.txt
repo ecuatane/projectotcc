@@ -1,0 +1,4 @@
+flask
+numpy
+sklearn==1.3.0
+gunicorn
