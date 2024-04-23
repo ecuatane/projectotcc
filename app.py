@@ -1,9 +1,9 @@
 from flask import Flask,request,jsonify
 import numpy as np
 import joblib
-import pickle
 
-model = joblib.load(open('resultados_grid_search_modelXGboost.pkl','rb'))
+
+model = joblib.load('resultados_grid_search_modelXGboost.pkl')
 
 best_model =model.best_estimator_
 app = Flask(__name__)
@@ -67,7 +67,7 @@ def predict():
     ])
 
     # Fazer a previsão usando o melhor modelo
-    result = best_model.predict(input_query)[0]
+    result = best_model.predict(input_query)
     return jsonify({'placement':str(result)})
 if __name__ == '__main__':
     app.run(debug=True)
