@@ -3,9 +3,8 @@ import numpy as np
 import joblib
 
 
-model = joblib.load('resultados_grid_search_modelXGboost.pkl')
+best_model = joblib.load('xgboostModel.pkl')
 
-best_model =model.best_estimator_
 app = Flask(__name__)
 @app.route('/')
 def index():
